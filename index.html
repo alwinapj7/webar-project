@@ -2,34 +2,38 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image.prod.js"></script>
   <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
 </head>
 
 <body>
-  <a-scene mindar-image="imageTargetSrc: targets.mind;"
-           vr-mode-ui="enabled: false"
-           device-orientation-permission-ui="enabled: true">
+  <a-scene 
+    mindar-image="imageTargetSrc: targets.mind;"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true">
 
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <a-entity mindar-image-target="targetIndex: 0">
-      <a-video src="#vid"
-               width="1"
-               height="0.6"
-               position="0 0 0">
-      </a-video>
-    </a-entity>
-
     <a-assets>
-      <video id="vid"
-             src="video.mp4"
-             autoplay
-             loop
-             muted
-             playsinline>
+      <video 
+        id="vid"
+        src="video.mp4"
+        loop
+        muted
+        playsinline
+        crossorigin="anonymous">
       </video>
     </a-assets>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-video 
+        src="#vid"
+        width="1"
+        height="0.6"
+        position="0 0 0">
+      </a-video>
+    </a-entity>
 
   </a-scene>
 </body>
