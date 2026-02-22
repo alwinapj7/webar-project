@@ -6,11 +6,11 @@
     body { margin: 0; overflow: hidden; }
   </style>
 
-  <!-- Load A-Frame FIRST -->
-  <script defer src="https://cdn.jsdelivr.net/npm/aframe@1.4.1/dist/aframe.min.js"></script>
+  <!-- Official A-Frame CDN -->
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
 
-  <!-- Load MindAR AFTER A-Frame -->
-  <script defer src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+  <!-- MindAR A-Frame build -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 </head>
 
 <body>
@@ -45,17 +45,12 @@
   </a-scene>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("load", () => {
       const video = document.querySelector("#video");
       const target = document.querySelector("#target");
 
-      target.addEventListener("targetFound", () => {
-        video.play();
-      });
-
-      target.addEventListener("targetLost", () => {
-        video.pause();
-      });
+      target.addEventListener("targetFound", () => video.play());
+      target.addEventListener("targetLost", () => video.pause());
     });
   </script>
 
